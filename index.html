@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fitness Ten - نادي رياضي محترف متخصص في كمال الأجسام واللياقة البدنية، مع أحدث المعدات والمدربين المحترفين">
+    <meta name="keywords" content="fitness, gym, bodybuilding, personal training, sauna, jacuzzi, Amman, Jordan">
+    <meta name="author" content="Fitness Ten">
+    <meta property="og:title" content="Fitness Ten - Professional Fitness Club">
+    <meta property="og:description" content="Transform your fitness journey with Fitness Ten - 15+ years of excellence">
+    <meta property="og:type" content="website">
+    <title>Fitness Ten | نادي اللياقة البدنية المحترف</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --primary-blue: #2C5F8D;
+            --secondary-blue: #4A90E2;
+            --light-blue: #E8F4F8;
+            --dark-gray: #2B2B2B;
+            --medium-gray: #4A4A4A;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-hover: rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+            --overlay-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* ===== GLOBAL RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Cairo', 'Roboto', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+        }
+
+        /* منع التمرير عند فتح القائمة */
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Arabic font styling */
+        [lang="ar"] body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* English font styling */
+        [lang="en"] body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* ===== UTILITY CLASSES ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-blue);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--secondary-blue);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 2px 10px var(--shadow);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-blue);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switch {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .lang-switch:hover {
+            background: var(--secondary-blue);
+            color: var(--white);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+            z-index: 1001;
+            position: relative;
+        }
+
+        /* طبقة الخلفية الداكنة */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--overlay-color);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            backdrop-filter: blur(3px);
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(135deg, rgba(44, 95, 141, 0.85), rgba(74, 144, 226, 0.75)), 
+                        url('hero-bg.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            margin-top: 90px;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            background: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px var(--shadow-hover);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.5rem;
+            color: var(--secondary-blue);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--medium-gray);
+            line-height: 1.8;
+        }
+
+        /* ===== GALLERY SECTION ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(44, 95, 141, 0.8), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay p {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* ===== COACH HIGHLIGHT SECTION ===== */
+        .coach-highlight {
+            background: var(--light-gray);
+        }
+
+        .coach-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 50px;
+        }
+
+        .coach-image-container {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px var(--shadow);
+        }
+
+        .coach-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+
+        .coach-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .coach-info {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .coach-name {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .coach-title {
+            font-size: 1.1rem;
+            color: var(--secondary-blue);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .coach-bio {
+            margin-bottom: 30px;
+        }
+
+        .coach-bio p {
+            line-height: 1.8;
+            color: var(--medium-gray);
+            font-size: 1.05rem;
+        }
+
+        .coach-expertise {
+            margin-bottom: 30px;
+        }
+
+        .coach-expertise h4 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background: var(--secondary-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .coach-achievements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--light-blue);
+            border-radius: 15px;
+        }
+
+        .achievement-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .achievement-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .achievement-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .achievement-text strong {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .achievement-text span {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+
+        .coach-philosophy {
+            border-left: 4px solid var(--secondary-blue);
+            padding-left: 20px;
+            margin-top: 30px;
+        }
+
+        .coach-philosophy blockquote {
+            margin: 0;
+        }
+
+        .coach-philosophy p {
+            font-style: italic;
+            color: var(--medium-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact {
+            background: var(--light-gray);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px var(--shadow);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--secondary-blue);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-blue);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--secondary-blue);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--medium-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 80%;
+                max-width: 350px;
+                bottom: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 50px 30px;
+                transition: var(--transition);
+                box-shadow: 2px 0 10px var(--shadow);
+                z-index: 1000;
+                overflow-y: auto;
+            }
+
+            /* للتوجيه RTL - القائمة تظهر من اليمين */
+            [dir="rtl"] .nav-links {
+                left: auto;
+                right: -100%;
+            }
+
+            [dir="rtl"] .nav-links.active {
+                left: auto;
+                right: 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .coach-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .coach-achievements {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 50px 0;
+            }
+        }
+
+        /* ===== LOADING ANIMATION ===== */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light-gray);
+            border-top-color: var(--secondary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ===== SCROLL TO TOP BUTTON ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px var(--shadow);
+            z-index: 999;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background: var(--primary-blue);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Fitness Ten Logo" id="logoImg">
+                <span class="logo-text">Fitness Ten</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                <li><a href="#services" data-ar="الخدمات" data-en="Services">الخدمات</a></li>
+                <li><a href="#gallery" data-ar="المعرض" data-en="Gallery">المعرض</a></li>
+                <li><a href="#coach" data-ar="المدرب" data-en="Coach">المدرب</a></li>
+                <li><a href="#contact" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a></li>
+                <li><button class="lang-switch" onclick="toggleLanguage()" id="langBtn">English</button></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMenu()" id="menuBtn">☰</button>
+        </nav>
+    </header>
+
+    <!-- طبقة الخلفية الداكنة -->
+    <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+           <h1 data-ar="مش مجرد نادي… هذا مركز تحول" data-en="More Than a Gym… It’s a Transformation Hub">مش مجرد نادي… هذا مركز تحول</h1>
+            <p data-ar="بيئة احترافية، أجهزة متطورة، ومدربين يصنعوا الفرق الحقيقي" data-en="A professional environment, advanced equipment, and trainers who make a real difference">بيئة احترافية، أجهزة متطورة، ومدربين يصنعوا الفرق الحقيقي</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary" data-ar="ابدأ الآن" data-en="Get Started">ابدأ الآن</a>
+                <a href="#services" class="btn btn-outline" data-ar="اكتشف المزيد" data-en="Learn More">اكتشف المزيد</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <h2 class="section-title" data-ar="خدماتنا" data-en="Our Services">خدماتنا</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💪</div>
+                    <h3 data-ar="كمال الأجسام" data-en="Bodybuilding">كمال الأجسام</h3>
+                    <p data-ar="برامج تدريب متخصصة لبناء العضلات وتحسين القوة البدنية مع مدربين محترفين" data-en="Specialized training programs for building muscle and improving physical strength with professional trainers">برامج تدريب متخصصة لبناء العضلات وتحسين القوة البدنية مع مدربين محترفين</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏋️</div>
+                    <h3 data-ar="التدريب الشخصي" data-en="Personal Training">التدريب الشخصي</h3>
+                    <p data-ar="خطط تدريب مخصصة تناسب أهدافك الفردية مع متابعة دقيقة ونتائج مضمونة" data-en="Customized training plans tailored to your individual goals with precise monitoring and guaranteed results">خطط تدريب مخصصة تناسب أهدافك الفردية مع متابعة دقيقة ونتائج مضمونة</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧖</div>
+                    <h3 data-ar="ساونا وبخار" data-en="Sauna & Steam Room">ساونا وبخار</h3>
+                    <p data-ar="مرافق استرخاء حديثة للتعافي بعد التمرين وتحسين الدورة الدموية والصحة العامة" data-en="Modern relaxation facilities for post-workout recovery and improving circulation and overall health">مرافق استرخاء حديثة للتعافي بعد التمرين وتحسين الدورة الدموية والصحة العامة</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3 data-ar="أحدث المعدات" data-en="Modern Equipment">أحدث المعدات</h3>
+                    <p data-ar="أجهزة رياضية عالمية حديثة لجميع مستويات التدريب والتمارين المتنوعة" data-en="Modern international sports equipment for all training levels and diverse exercises">أجهزة رياضية عالمية حديثة لجميع مستويات التدريب والتمارين المتنوعة</p>
+                </div>
+                <div class="service-card">
+                <div class="service-icon">🔥</div>
+                    <h3 data-ar="لياقة بدنية" data-en="Fitness Training">لياقة بدنية</h3>
+                    <p data-ar="برامج متكاملة لرفع مستوى اللياقة، حرق الدهون، وزيادة التحمل بأساليب تدريب حديثة تناسب جميع المستويات" 
+                    data-en="Comprehensive programs to improve fitness levels, burn fat, and increase endurance using modern training methods suitable for all levels">
+                     برامج متكاملة لرفع مستوى اللياقة، حرق الدهون، وزيادة التحمل بأساليب تدريب حديثة تناسب جميع المستويات
+                     </p>
+                </div>
+
+                <div class="service-card">
+                <div class="service-icon">💃</div>
+                <h3 data-ar="حصص جماعية" data-en="Group Classes">حصص جماعية</h3>
+                <p data-ar="حصص تفاعلية مليئة بالطاقة مثل الزومبا، الرقص الشرقي، اليوغا، والـ Pilates لتعزيز النشاط والمرونة بروح جماعية محفزة" 
+                data-en="High-energy interactive classes such as Zumba, Oriental Dance, Yoga, and Pilates to boost activity and flexibility in a motivating group atmosphere">
+                 حصص تفاعلية مليئة بالطاقة مثل الزومبا، الرقص الشرقي، اليوغا، والـ Pilates لتعزيز النشاط والمرونة بروح جماعية محفزة
+                </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-ar="معرض الصور" data-en="Our Gallery">معرض الصور</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Coach Highlight Section -->
+    <section class="section coach-highlight" id="coach">
+        <div class="container">
+            <h2 class="section-title" data-ar="تعرف على مدربنا" data-en="Meet Our Coach">تعرف على مدربنا</h2>
+            <div class="coach-content">
+                <div class="coach-image-container">
+                    <img src="coach-rami.jpg" alt="Coach Rami Al-Najjar" class="coach-image">
+                    <div class="coach-badge">
+                        <span data-ar="مدرب معتمد" data-en="Certified Coach">مدرب معتمد</span>
+                    </div>
+                </div>
+                <div class="coach-info">
+                    <h3 class="coach-name" data-ar="المدرب رامي النجار" data-en="Coach Rami Al-Najjar">المدرب رامي النجار</h3>
+                    <p class="coach-title" data-ar="مدرب كمال أجسام معتمد | أخصائي تغذية رياضية" data-en="Certified Bodybuilding Coach | Sports Nutrition Specialist">مدرب كمال أجسام معتمد | أخصائي تغذية رياضية</p>
+                    
+                    <div class="coach-bio">
+                        <p data-ar="مع أكثر من 15 عاماً من الخبرة في مجال كمال الأجسام واللياقة البدنية، يُعتبر المدرب رامي من أبرز المدربين في الأردن. تخصص في تطوير برامج تدريب مخصصة تحقق نتائج استثنائية لجميع المستويات." 
+                           data-en="With over 15 years of experience in bodybuilding and fitness, Coach Rami is one of Jordan's premier trainers. Specializing in developing customized training programs that deliver exceptional results for all levels.">
+                           مع أكثر من 15 عاماً من الخبرة في مجال كمال الأجسام واللياقة البدنية، يُعتبر المدرب رامي من أبرز المدربين في الأردن. تخصص في تطوير برامج تدريب مخصصة تحقق نتائج استثنائية لجميع المستويات.
+                        </p>
+                    </div>
+
+                    <div class="coach-expertise">
+                        <h4 data-ar="التخصصات" data-en="Expertise">التخصصات</h4>
+                        <div class="expertise-tags">
+                            <span class="tag" data-ar="كمال الأجسام" data-en="Bodybuilding">كمال الأجسام</span>
+                            <span class="tag" data-ar="التدريب الوظيفي" data-en="Functional Training">التدريب الوظيفي</span>
+                            <span class="tag" data-ar="التغذية الرياضية" data-en="Sports Nutrition">التغذية الرياضية</span>
+                            <span class="tag" data-ar="تحويل الجسم" data-en="Body Transformation">تحويل الجسم</span>
+                        </div>
+                    </div>
+
+                    <div class="coach-achievements">
+                        <div class="achievement-item">
+                            <div class="achievement-icon">🏆</div>
+                            <div class="achievement-text">
+                                <strong data-ar="200+" data-en="200+">200+</strong>
+                                <span data-ar="عميل تم تحويل جسمه" data-en="Successful Transformations">عميل تم تحويل جسمه</span>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">📚</div>
+                            <div class="achievement-text">
+                                <strong data-ar="15+" data-en="15+">15+</strong>
+                                <span data-ar="سنة خبرة" data-en="Years of Experience">سنة خبرة</span>
+                            </div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-icon">⭐</div>
+                            <div class="achievement-text">
+                                <strong data-ar="شهادات دولية" data-en="International Certifications">شهادات دولية</strong>
+                                <span data-ar="في التدريب والتغذية" data-en="in Training & Nutrition">في التدريب والتغذية</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="coach-philosophy">
+                        <blockquote>
+                            <p data-ar="&quot;النجاح في اللياقة البدنية لا يتعلق بالكمال، بل بالالتزام والتقدم المستمر. كل خطوة للأمام هي إنجاز.&quot;" 
+                               data-en="&quot;Success in fitness isn't about perfection—it's about commitment and continuous progress. Every step forward is an achievement.&quot;">
+                               "النجاح في اللياقة البدنية لا يتعلق بالكمال، بل بالالتزام والتقدم المستمر. كل خطوة للأمام هي إنجاز."
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-ar="تواصل معنا" data-en="Get In Touch">تواصل معنا</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 data-ar="ابدأ رحلتك معنا اليوم" data-en="Start Your Journey With Us Today">ابدأ رحلتك معنا اليوم</h3>
+                    <p data-ar="انضم إلى Fitness Ten واستمتع بتجربة لياقة بدنية استثنائية مع مدربين محترفين ومعدات حديثة" data-en="Join Fitness Ten and enjoy an exceptional fitness experience with professional trainers and modern equipment">انضم إلى Fitness Ten واستمتع بتجربة لياقة بدنية استثنائية مع مدربين محترفين ومعدات حديثة</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong data-ar="الموقع" data-en="Location">الموقع</strong><br>
+                                <span data-ar="عمان، الأردن" data-en="Amman, Jordan">عمان، الأردن،جاوا </span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <strong data-ar="الهاتف" data-en="Phone">الهاتف</strong><br>
+                                <span>+962 9102 2422</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div>
+                                <strong data-ar="ساعات العمل" data-en="Working Hours">ساعات العمل</strong><br>
+                                <span data-ar="السبت - الخميس: 10 صباحاً - 12 منتصف الليل" data-en="Sat - Thu: 10 AM - 12 PM">السبت - الخميس: 10 صباحاً - 12 منتصف الليل</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label data-ar="الاسم" data-en="Name">الاسم</label>
+                        <input type="text"  name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="رقم الهاتف" data-en="Phone">رقم الهاتف</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="الرسالة" data-en="Message">الرسالة</label>
+                        <textarea name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-ar="إرسال" data-en="Send Message" style="width: 100%;">إرسال</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Fitness Ten</h4>
+                    <p data-ar="نادي رياضي محترف متخصص في كمال الأجسام واللياقة البدنية مع 15 عاماً من الخبرة" data-en="Professional fitness club specializing in bodybuilding and fitness with 15 years of experience">نادي رياضي محترف متخصص في كمال الأجسام واللياقة البدنية مع 15 عاماً من الخبرة</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-ar="روابط سريعة" data-en="Quick Links">روابط سريعة</h4>
+                    <p><a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></p>
+                    <p><a href="#services" data-ar="الخدمات" data-en="Services">الخدمات</a></p>
+                    <p><a href="#gallery" data-ar="المعرض" data-en="Gallery">المعرض</a></p>
+                    <p><a href="#contact" data-ar="اتصل بنا" data-en="Contact">اتصل بنا</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-ar="تابعنا" data-en="Follow Us">تابعنا</h4>
+                    <div class="social-links">
+                        <a href="https://web.facebook.com/p/Fitness-Ten-61553172098536/?_rdc=1&_rdr#" class="social-link" aria-label="Facebook">f</a>
+                        <a href="https://www.instagram.com/fitnesstengym/" class="social-link" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-ar="© 2026 Fitness Ten. جميع الحقوق محفوظة." data-en="© 2026 Fitness Ten. All rights reserved.">© 2026 Fitness Ten. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+
+    <script>
+        // ===== CONFIGURATION =====
+        const config = {
+            currentLang: 'ar',
+            translations: {}
+        };
+
+        // ===== LANGUAGE TOGGLE =====
+        function toggleLanguage() {
+            config.currentLang = config.currentLang === 'ar' ? 'en' : 'ar';
+            const html = document.documentElement;
+            const langBtn = document.getElementById('langBtn');
+            
+            if (config.currentLang === 'ar') {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+                langBtn.textContent = 'English';
+            } else {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+                langBtn.textContent = 'العربية';
+            }
+            
+            updateContent();
+        }
+
+        // ===== UPDATE CONTENT =====
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-ar][data-en]');
+            elements.forEach(el => {
+                el.textContent = config.currentLang === 'ar' ? el.dataset.ar : el.dataset.en;
+            });
+        }
+
+        // ===== MOBILE MENU TOGGLE =====
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('menuBtn');
+            const overlay = document.getElementById('menuOverlay');
+            const body = document.body;
+            
+            navLinks.classList.toggle('active');
+            overlay.classList.toggle('active');
+            
+            // منع التمرير عند فتح القائمة
+            if (navLinks.classList.contains('active')) {
+                body.classList.add('menu-open');
+                menuBtn.textContent = '✕';
+            } else {
+                body.classList.remove('menu-open');
+                menuBtn.textContent = '☰';
+            }
+        }
+
+        // ===== CLOSE MENU =====
+        function closeMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.getElementById('menuBtn');
+            const overlay = document.getElementById('menuOverlay');
+            const body = document.body;
+            
+            navLinks.classList.remove('active');
+            overlay.classList.remove('active');
+            body.classList.remove('menu-open');
+            menuBtn.textContent = '☰';
+        }
+
+        // ===== CLOSE MENU ON LINK CLICK =====
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeMenu();
+                }
+            });
+        });
+
+        // ===== SCROLL TO TOP =====
+        const scrollTopBtn = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== FORM SUBMISSION =====
+        (function(){
+        emailjs.init("6z7SMqYClVdvD2wAc"); // Public Key
+                    })();
+
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        emailjs.sendForm(
+        "service_qeajhvd",      // Service ID
+        "template_16t0o16",     // Template ID
+        this
+        )
+        .then(function() {
+        alert("تم إرسال الرسالة بنجاح ✅");
+        document.getElementById("contactForm").reset();
+        })
+        .catch(function(error) {
+        alert("حدث خطأ ❌");
+        console.log("EmailJS Error:", error);
+        });
+        });
+
+        // ===== LOAD GALLERY IMAGES =====
+        function loadGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            const images = [
+                { src: 'gym1.jpg', alt: 'Cardio Area', arAlt: 'منطقة الكارديو' },
+                { src: 'gym2.jpg', alt: 'Free Weights', arAlt: 'الأوزان الحرة' },
+                { src: 'gym3.jpg', alt: 'Training weights', arAlt: 'أوزان التدريب' },
+                { src: 'gym4.jpg', alt: 'Training Session', arAlt: 'جلسة تدريب' },
+                { src: 'gym5.jpg', alt: 'Cardio Area', arAlt: 'منطقة الكارديو' },
+                { src: 'gym6.jpg', alt: 'Training weights', arAlt: 'أوزان التدريب' }
+            ];
+
+            images.forEach(img => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.innerHTML = `
+                    <img src="${img.src}" alt="${img.alt}" loading="lazy">
+                    <div class="gallery-overlay">
+                        <p data-ar="${img.arAlt}" data-en="${img.alt}">${config.currentLang === 'ar' ? img.arAlt : img.alt}</p>
+                    </div>
+                `;
+                galleryGrid.appendChild(item);
+            });
+        }
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 90;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== INITIALIZE =====
+        window.addEventListener('DOMContentLoaded', () => {
+            loadGallery();
+            
+            // Hide loading screen
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 500);
+        });
+
+        // ===== PERFORMANCE OPTIMIZATION =====
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.src;
+            });
+        }
+
+        // ===== CLOSE MENU ON RESIZE =====
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeMenu();
+            }
+        });
+    </script>
+</body>
+</html>
